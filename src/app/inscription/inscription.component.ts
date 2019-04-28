@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
+import { PasswordValidator } from './password.validators';
 
 @Component({
   selector: 'app-inscription',
@@ -41,9 +42,11 @@ export class InscriptionComponent implements OnInit {
           Validators.minLength(8),
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
         ]),
-        emailf: ['', 
-        Validators.compose([Validators.required, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$'), Validators.minLength(1)])],
       }
+    ,
+    {
+      validator:PasswordValidator.passwordShouldMatch
+    }
     );
   }
   get password() {

@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col">
         <label>Name :</label>
-        <input type="text" class="form-control" placeholder="First name"  formControlName="name">
+        <input type="text" class="form-control" placeholder="First name" formControlName="name">
         <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
           <div *ngIf="name.errors.required" class="alert alert-danger">
             Le prénom est obligatoire
@@ -31,7 +31,8 @@
     <div class="row">
       <div class="col">
         <label>E-mail :</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" formControlName="email"> 
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+          formControlName="email">
         <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
           <div *ngIf="email.errors.required" class="alert alert-danger">
             Le email est obligatoire
@@ -44,9 +45,9 @@
           </div>
         </div>
 
-        
-    
-      
+
+
+
 
       </div>
       <div class="col">
@@ -63,7 +64,7 @@
             Le telephone doit comporté que des chiffre
           </div>
         </div>
-    
+
       </div>
     </div>
     <div class="row">
@@ -84,7 +85,10 @@
 
       <div class="col">
         <label>Repeat PassWord :</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password" formControlName="rpassword">
+
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+          formControlName="rpassword">
+
         <div *ngIf="rpassword.touched && rpassword.invalid" class="alert alert-danger">
           <div *ngIf="rpassword.errors.required" class="alert alert-danger">
             La confirmation du mot de passe est obligatoire
@@ -92,9 +96,12 @@
           <div *ngIf="rpassword.errors.minlength" class="alert alert-danger">
             La confirmation MDP doit comporte au min {{rpassword.errors.minlength.requiredLength}}
           </div>
-
         </div>
-      
+
+        <div *ngIf="rpassword.valid && inscriptionForm.invalid && rpassword.errors?.passwordShouldMatch " class="alert alert-danger">
+          Le MDP n'est pas conforme
+        </div>
+
       </div>
     </div>
     <br>
