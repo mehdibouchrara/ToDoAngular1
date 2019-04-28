@@ -1,0 +1,104 @@
+<app-nav></app-nav>
+<div class="container">
+  <form [formGroup]="inscriptionForm" (ngSubmit)="inscription()">
+    <h1>Formulaire d'inscription</h1>
+    <div class="row">
+      <div class="col">
+        <label>Name :</label>
+        <input type="text" class="form-control" placeholder="First name"  formControlName="name">
+        <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+          <div *ngIf="name.errors.required" class="alert alert-danger">
+            Le prénom est obligatoire
+          </div>
+          <div *ngIf="name.errors.minlength" class="alert alert-danger">
+            Le prénom doit comporte au min {{name.errors.minlength.requiredLength}}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label>Last Name :</label>
+        <input type="text" class="form-control" placeholder="Last name" formControlName="lastname">
+        <div *ngIf="lastname.touched && lastname.invalid" class="alert alert-danger">
+          <div *ngIf="lastname.errors.required" class="alert alert-danger">
+            Le nom est obligatoire
+          </div>
+          <div *ngIf="lastname.errors.minlength" class="alert alert-danger">
+            Le nom doit comporte au min {{lastname.errors.minlength.requiredLength}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>E-mail :</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" formControlName="email"> 
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+          <div *ngIf="email.errors.required" class="alert alert-danger">
+            Le email est obligatoire
+          </div>
+          <div *ngIf="email.errors.minlength" class="alert alert-danger">
+            Le email doit comporte au min {{email.errors.minlength.requiredLength}}
+          </div>
+          <div *ngIf="email.errors.pattern" class="alert alert-danger">
+            Le email doit etre sous forme xxxx@xxx.xx
+          </div>
+        </div>
+
+        
+    
+      
+
+      </div>
+      <div class="col">
+        <label>Phone :</label>
+        <input type="text" class="form-control" placeholder="Tel" formControlName="phone">
+        <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
+          <div *ngIf="phone.errors.required" class="alert alert-danger">
+            Le telephone est obligatoire
+          </div>
+          <div *ngIf="phone.errors.minlength" class="alert alert-danger">
+            Le telephone doit comporte au min {{phone.errors.minlength.requiredLength}}
+          </div>
+          <div *ngIf="phone.errors.pattern" class="alert alert-danger">
+            Le telephone doit comporté que des chiffre
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>PassWord :</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="Password"
+          formControlName="password">
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+          <div *ngIf="password.errors.required" class="alert alert-danger">
+            Le mot de passe est obligatoire
+          </div>
+          <div *ngIf="password.errors.minlength" class="alert alert-danger">
+            Le MDP doit comporte au min {{password.errors.minlength.requiredLength}}
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col">
+        <label>Repeat PassWord :</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="Password" formControlName="rpassword">
+        <div *ngIf="rpassword.touched && rpassword.invalid" class="alert alert-danger">
+          <div *ngIf="rpassword.errors.required" class="alert alert-danger">
+            La confirmation du mot de passe est obligatoire
+          </div>
+          <div *ngIf="rpassword.errors.minlength" class="alert alert-danger">
+            La confirmation MDP doit comporte au min {{rpassword.errors.minlength.requiredLength}}
+          </div>
+
+        </div>
+      
+      </div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-success" [disabled]="inscriptionForm.invalid" value="Inscription" />
+  </form>
+
+  <app-footer></app-footer>

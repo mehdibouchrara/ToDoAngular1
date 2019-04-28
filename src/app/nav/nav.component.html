@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand"   href="#">
+      <img width="100" [src]="imgUrl"/>
+
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+          <button [routerLink]="['/connexion']" class="btn btn-outline-primary mr-sm-2" >Connexion</button>
+        <button [routerLink]="['/inscription']"class="btn btn-outline-info mr-sm-2" >Inscription</button>
+        <button [routerLink]="['']" class="btn btn-outline-danger my-2 my-sm-0">Deconnecter</button>
+      </form>
+    </div>
+  </nav>

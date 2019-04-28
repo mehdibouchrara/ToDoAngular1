@@ -1,0 +1,88 @@
+<app-nav></app-nav>
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8">
+          <p class="mt-2 h2" [textContent]="todo"></p>
+        </div>
+      </div>
+    </div>
+    <p>
+      <button [routerLink]="['/add-to-do']" type="button" class="btn btn-success">Add To Do</button>
+    </p>
+
+    <table class="table table-striped table-hover table-bordered" id="Tab1">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Description <i class="fa fa-sort"></i></th>
+          <th>Date To Do</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let listtodo of Listtodos ; let i = index">
+              <td> {{listtodo.id}}</td>
+              <td> {{listtodo.Description }}</td>
+              <td> {{listtodo.Datetodo }}</td>
+              <td> 
+                  <input type="button" value="Delete" class="btn btn-outline-danger" (click)="openModal(template,i)">
+                  <button type="button" class="btn btn-outline-warning  mx-2">Edit</button>
+                  <button type="button" class="btn btn-outline-success" (click)="add(listtodo)">Done</button>
+
+              </td>
+            </tr>
+
+      </tbody>
+    </table>
+
+    <ng-template #template>
+        <div class="modal-header">
+          Confirm Modal
+        </div>
+        <div class="modal-body text-center">
+          <p>Do you want to confirm?</p>
+          <button type="button" class="btn btn-default" (click)="delete()">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+        </div>
+      </ng-template>
+
+    <hr color="grey">
+
+    <h2>Done <b>Details</b></h2>
+
+    <table class="table table-striped table-hover table-bordered" id="Tab2">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Description <i class="fa fa-sort"></i></th>
+          <th>Date To Do</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let todo of todos ; let j = index">
+              <td> {{todo.id }}</td>
+              <td> {{todo.Description }}</td>
+              <td> {{todo.Datetodo }}</td>
+              <td>
+                  <input type="button" value="Delete" class="btn btn-outline-danger" (click)="openModal1(template1,j)">
+              </td>
+            </tr>
+      </tbody>
+    </table>
+    <ng-template #template1>
+        <div class="modal-header">
+          Confirm Modal
+        </div>
+        <div class="modal-body text-center">
+          <p>Do you want to confirm?</p>
+          <button type="button" class="btn btn-default" (click)="delete1()">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+        </div>
+      </ng-template>
+  </div>
+</div>
+
+<app-footer></app-footer>
