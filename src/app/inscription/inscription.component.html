@@ -43,6 +43,9 @@
           <div *ngIf="email.errors.pattern" class="alert alert-danger">
             Le email doit etre sous forme xxxx@xxx.xx
           </div>
+          <div *ngIf="email.errors.emailUnique" class="alert alert-danger">
+            l'email existe déjà 
+          </div>
         </div>
 
 
@@ -98,7 +101,7 @@
           </div>
         </div>
 
-        <div *ngIf="rpassword.valid && inscriptionForm.invalid && rpassword.errors?.passwordShouldMatch " class="alert alert-danger">
+        <div *ngIf="rpassword.valid && inscriptionForm.invalid && inscriptionForm.errors?.passwordShouldMatch " class="alert alert-danger">
           Le MDP n'est pas conforme
         </div>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { PasswordValidator } from './password.validators';
+import { EmailValidator } from './email.validators';
 
 @Component({
   selector: 'app-inscription',
@@ -41,6 +42,7 @@ export class InscriptionComponent implements OnInit {
           Validators.required,
           Validators.minLength(8),
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+          EmailValidator.emailUnique
         ]),
       }
     ,
